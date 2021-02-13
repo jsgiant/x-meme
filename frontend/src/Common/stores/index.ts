@@ -1,15 +1,15 @@
-import MemesAPIs from "../../XMeme/services/MemesService/index.api";
-import MemesFixtures from "../../XMeme/services/MemesService/index.fixture";
-import MemeStore from "../../XMeme/stores/MemeStore";
-import UIStore from "../../XMeme/stores/UIStore/UIStore";
+import MemesAPIs from "../../services/MemesService/index.api";
+import MemesFixtures from "../../services/MemesService/index.fixture";
+import MemeStore from "../../stores/MemeStore";
+import UIStore from "../../stores/UIStore/UIStore";
 
-const useFixtures = false;
+const useFixtures = true;
 
 function getPostMemeAPIFixture() {
-   if (useFixtures) {
-      return new MemesFixtures();
-   }
-   return new MemesAPIs();
+	if (useFixtures) {
+		return new MemesFixtures();
+	}
+	return new MemesAPIs();
 }
 
 const memeStore = new MemeStore(getPostMemeAPIFixture());
