@@ -3,7 +3,7 @@ import MemesFixtures from "../../services/MemesService/index.fixture";
 import MemeStore from "../../stores/MemeStore";
 import UIStore from "../../stores/UIStore/UIStore";
 
-const useFixtures = true;
+const useFixtures = false;
 
 function getPostMemeAPIFixture() {
 	if (useFixtures) {

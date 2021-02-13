@@ -9,6 +9,8 @@ export const MemeContainer = styled.div`
 	border: 1px solid #7b8794;
 `;
 
+export const MemeTitleSection = styled.div``;
+
 export const MemeBar = styled.div`
 	${tw`
         flex justify-between mx-12px
@@ -31,7 +33,7 @@ export const MemePostedTime = styled.span``;
 
 export const MemeSubTitleBar = styled(MemeBar)`
 	${tw`
-        my-8px
+        my-8px items-center
     `}
 `;
 
@@ -43,8 +45,15 @@ export const MemeCaption = styled.span`
 
 export const MemeOptionsContainer = styled.div`
 	${tw`
-      flex
+      flex flex-wrap
    `}
+`;
+
+export const UpdateButton = styled.button`
+	${tw`text-white cursor-pointer bg-green-500 font-bold focus:outline-none border-none`}
+	border-radius: 4px;
+	width: 100px;
+	height: 40px;
 `;
 
 export const EditButton = styled(Button)`
@@ -58,9 +67,9 @@ export const EditButton = styled(Button)`
 	}
 `;
 
-export const DeleteButton = styled(EditButton)`
+export const DeleteButton = styled(UpdateButton)`
 	${tw`
-      ml-8px
+      ml-8px bg-red-500
    `}
 `;
 

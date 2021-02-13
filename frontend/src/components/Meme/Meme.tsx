@@ -19,7 +19,8 @@ import {
 	MemeOptionsContainer,
 	MemeCreatorName,
 	MemeSubTitleBar,
-	MemeTitleBar
+	MemeTitleBar,
+	UpdateButton
 } from "./styledComponents";
 import { getParsedErrorMessage, isFetching } from "../../Common/utils/APIUtils";
 import cogoToast from "cogo-toast";
@@ -90,27 +91,13 @@ class Meme extends Component<MemeProps> {
 				</MemeTitleBar>
 				<MemeSubTitleBar>
 					<MemeCaption>{caption}</MemeCaption>
-					{/* <MemeOptionsContainer>
-						<EditButton onClick={this.editMeme}>
-							<FaRegEdit size={16} />
-						</EditButton>
-						<DeleteButton
-							onClick={this.deleteMemeAPI}
-							loading={showLoader}
-							disabled={showLoader}
-						>
-							<AiFillDelete size={16} />
-						</DeleteButton>
-					</MemeOptionsContainer> */}
+					<MemeOptionsContainer>
+						<UpdateButton onClick={this.editMeme}>Update</UpdateButton>
+						<DeleteButton onClick={this.deleteMemeAPI}>Delete</DeleteButton>
+					</MemeOptionsContainer>
 				</MemeSubTitleBar>
 				<MemeImageContainer>
-					<MemeImage
-						alt={caption}
-						src={url}
-						// onError={(event) => {
-						// 	event.target.src = notFoundLogo;
-						// }}
-					/>
+					<MemeImage alt={caption} src={url} />
 				</MemeImageContainer>
 			</MemeContainer>
 		);

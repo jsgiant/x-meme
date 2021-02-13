@@ -2,15 +2,14 @@ import React, { Component, ReactElement } from "react";
 import { observable, reaction } from "mobx";
 import { inject, observer } from "mobx-react";
 import cogoToast from "cogo-toast";
-import { GiBeveledStar } from "react-icons/gi";
+import Loader from "react-loader-spinner";
 
-import Button from "../../Common/components/Button";
 import { getParsedErrorMessage, isFetching } from "../../Common/utils/APIUtils";
 import { urlRegex } from "../../Common/constants/RegexConstants";
 
 import { EditMemeRequest, PostMemeRequest } from "../../types";
 import UIStore from "../../stores/UIStore";
-import { EXISTING_MEME, NEW_MEME } from "../../constants/UIConstants";
+import { EXISTING_MEME } from "../../constants/UIConstants";
 import MemeModel from "../../stores/models/MemeModel";
 import {
 	AddMemeForm,
@@ -86,6 +85,7 @@ class MemeForm extends Component<MemeFormProps> {
 		(meme: MemeModel) => {
 			const { memeType } = this.uiStore;
 			const { name, caption, url } = meme;
+			this.errorMessage = "";
 			if (memeType === EXISTING_MEME) {
 				this.name = name;
 				this.caption = caption;
@@ -115,7 +115,10 @@ class MemeForm extends Component<MemeFormProps> {
 
 	onFailurePostingMeme = () => {
 		const { postMemeAPIError } = this.props;
-		this.errorMessage = getParsedErrorMessage(postMemeAPIError);
+
+		cogoToast.success(getParsedErrorMessage(postMemeAPIError), {
+			position: "bottom-center"
+		});
 	};
 
 	postMemeAPI = () => {
@@ -184,7 +187,6 @@ class MemeForm extends Component<MemeFormProps> {
 
 	render(): ReactElement {
 		const { postMemeAPIStatus, editMemeAPIStatus } = this.props;
-		const { memeType } = this.uiStore;
 		const showButtonLoader =
 			isFetching(postMemeAPIStatus) || isFetching(editMemeAPIStatus);
 		return (
@@ -214,7 +216,9 @@ class MemeForm extends Component<MemeFormProps> {
 					/>
 					<ValidationError>{this.errorMessage}</ValidationError>
 					{showButtonLoader ? (
-						<SubmitButtonWhileLoading></SubmitButtonWhileLoading>
+						<SubmitButtonWhileLoading>
+							<Loader type="TailSpin" color="#f3f3f3" height={20} width={20} />
+						</SubmitButtonWhileLoading>
 					) : (
 						<SubmitButton>Submit</SubmitButton>
 					)}

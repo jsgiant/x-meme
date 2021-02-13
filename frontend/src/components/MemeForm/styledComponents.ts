@@ -11,12 +11,6 @@ export const AddMemeForm = styled.form`
 	border-radius: 8px;
 `;
 
-export const Logo = styled.img`
-	width: 90px;
-	height: 90px;
-	object-fit: contain;
-`;
-
 export const Heading = styled.p`
 	font-size: 32px;
 	color: #171f46;
@@ -42,16 +36,19 @@ export const UserInput = styled.input`
 `;
 
 export const SubmitButton = styled.button`
-	${tw`text-white font-bold focus:outline-none border-none px-5 py-3 mt-4`}
+	${tw`text-white cursor-pointer font-bold focus:outline-none border-none  mt-4`}
 	border-radius: 4px;
-
 	background-color: #0b69ff;
+	width: 100px;
+	height: 40px;
 `;
 
 export const SubmitButtonWhileLoading = styled.button`
 	${tw`text-white flex justify-center items-center cursor-wait opacity-50 focus:outline-none mt-4`}
 	border-radius: 4px;
 	background-color: #0b69ff;
+	width: 100px;
+	height: 40px;
 `;
 export const ValidationError = styled.span`
 	${tw`text-sm`}
