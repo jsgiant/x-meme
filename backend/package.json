@@ -1,12 +1,12 @@
 {
-	"name": "xmeme",
+	"name": "memestream",
 	"version": "1.0.0",
 	"description": "",
 	"main": "index.js",
 	"scripts": {
 		"start": "nodemon index.js"
 	},
-	"author": "Hafeezul Kareem Shaik",
+	"author": "Anil Kumar Peddireddy",
 	"license": "ISC",
 	"dependencies": {
 		"body-parser": "1.19.0",
