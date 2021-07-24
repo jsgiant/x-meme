@@ -15,4 +15,4 @@ You can install the software requirements using the `install.sh` script file. An
 
 ## Connect
 
-Author: [Anil Kumar Peddireddy](https://www.linkedin.com/in/anil-kumar-peddireddy/)
+Author: [Anil Kumar Peddireddy](https://twitter.com/anil_dev31)
